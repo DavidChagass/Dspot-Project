@@ -13,5 +13,4 @@ function domn() {
             document.getElementsByClassName('dominio')[0].value = "";
         }
     }
-    
 }
