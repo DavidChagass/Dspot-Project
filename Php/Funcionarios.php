@@ -24,6 +24,7 @@ $senha = "david123";
         } else {
             echo "<h1>" . "error email" . "</h1>";
         }
+        echo $sql;
     }
     function senha($senha)
     {
@@ -31,6 +32,7 @@ $senha = "david123";
         if (isset($senha)) {
             $sql = "SELECT idFuncionario FROM Funcionario WHERE senhaFuncionario = {$senha}";
             $result = $conn->query($sql);
+            
         } else {
             echo "<h1>" . "error senha" . "</h1>";
         }
