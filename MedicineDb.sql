@@ -9,7 +9,7 @@ cnpjEmpresa char(18) not null
 
 create table Funcionario(
 idFuncionario int primary key auto_increment,
-nomeFuncionario varchar(200) not null,
+nome varchar(200) not null,
 cpfFuncionario char(14) not null,
 senhaFuncionario varchar(20) not null,
 emailFuncionario varchar(150) not null
