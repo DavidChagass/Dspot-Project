@@ -23,7 +23,7 @@
             <input type="email" required="required" name="email" class="email" placeholder="E-mail">
             <input type="password" required="required" name="senha" class="senha" placeholder="Senha">
         </div>
-        <button class="enviar" type="submit">ENTRAR</button>
+        <button class="enviar btn-4" type="submit">ENTRAR</button>
     </form>
 </body>
 
