@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/css/main.css">
     <script defer src="/js/main.js"></script>
     <link href="https://fonts.cdnfonts.com/css/berlin-sans-fb" rel="stylesheet">
-    <title>Medicine-Bank - Funcionário</title>
+    <title>Dspot - Funcionário</title>
 </head>
 
 <body>
