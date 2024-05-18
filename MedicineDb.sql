@@ -1,5 +1,5 @@
 create database Medicine;
-
+use medicine;
 create table Empresa(
 idEmpresa int primary key auto_increment,
 dominio char(10) not null,
@@ -21,3 +21,7 @@ nomeGerente varchar(200) not null,
 senhaGerente varchar(20) not null,
 emailGerente varchar(150) not null
 )engine=InnoDB;
+
+
+insert into Funcionario(idFuncionario, nomeFuncionario, cpfFuncionario, senhaFuncionario, emailFuncionario)
+values(1, "samuel silva", "063.513.480-21", "samuelsilva", "sanduicheiche@gmail.com");

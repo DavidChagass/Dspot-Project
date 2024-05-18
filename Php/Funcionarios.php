@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -9,16 +8,15 @@
 <body>
 <?php
 
-include 'Conexao.php';
-$email = "david@email.com";
-$senha = "david123";
+    include 'Conexao.php';
+    $email = "sanduicheiche@gmail.com";
+    $senha = "samuelsilva";
     function email($email)
     {
         $conn =  Database();
-
         if (isset($email)) {
             $sql = "SELECT idFuncionario FROM Funcionario WHERE emailFuncionario = {$email}";
-            $result = $conn->query($sql);
+            $result = $conn->query($sql);   
         } else {
             echo "<h1>" . "error email" . "</h1>";
         }
@@ -30,13 +28,13 @@ $senha = "david123";
         if (isset($senha)) {
             $sql = "SELECT idFuncionario FROM Funcionario WHERE senhaFuncionario = {$senha}";
             $result = $conn->query($sql);
-            
         } else {
             echo "<h1>" . "error senha" . "</h1>";
         }
-    }
-
-?>
+    }   
+    
+    ?>
 
 </body>
+
 </html>

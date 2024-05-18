@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/css/main.css">
     <script defer src="/js/main.js"></script>
     <link href="https://fonts.cdnfonts.com/css/berlin-sans-fb" rel="stylesheet">
-    <title>Dspot - seu estoque na ponta do seu dedo</title>
+    <title>Dspot - Funcionário</title>
 </head>
 
 <body>
@@ -23,7 +23,7 @@
             <input type="email" required="required" name="email" class="email" placeholder="E-mail">
             <input type="password" required="required" name="senha" class="senha" placeholder="Senha">
         </div>
-        <button class="enviar" type="submit">ENTRAR</button>
+        <button class="enviar btn-4 custom-btn" type="submit">ENTRAR</button>
     </form>
 </body>
 
