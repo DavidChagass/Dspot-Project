@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="/css/cadEmp.css">
     <script defer src="/js/main.js"></script>
     <link href="https://fonts.cdnfonts.com/css/berlin-sans-fb" rel="stylesheet">
-    <title>Medicine-Bank</title>
+
+    <title>Dspot - Gerentes</title>
 </head>
 
 <body>
@@ -23,7 +24,7 @@
             <input type="email" required="required" name="email" class="email" placeholder="E-mail">
             <input type="password" required="required" name="senha" class="senha" placeholder="Senha">
         </div>
-        <button class="enviar" type="submit">ENTRAR</button>
+        <button class="enviar btn-4 custom-btn" type="submit">ENTRAR</button>
     </form>
 </body>
 
