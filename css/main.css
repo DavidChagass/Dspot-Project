@@ -1,179 +1,179 @@
-    body 
-    {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100vw;
-        height: 100vh;
-        background: linear-gradient(to bottom, #71a557, #e2e497);
-    }
+body 
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to bottom, #71a557, #e2e497);
+}
 
-    form {
-        display: flex;
-        flex-direction: column;
-        max-width: 450px;
-        align-items: center;
-        justify-content: space-around;
-        width: 80%;
-        height: 40%;
-        padding: 10px 10px;
-        background-color: #FFFFFF;
-        box-shadow: 0 5px 7px 2px rgb(0, 0, 0, 25%);
-    }
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 450px;
+    align-items: center;
+    justify-content: space-around;
+    width: 80%;
+    height: 40%;
+    padding: 10px 10px;
+    background-color: #FFFFFF;
+    box-shadow: 0 5px 7px 2px rgb(0, 0, 0, 25%);
+}
 
-    Form>.conteiner {
-        display: flex;
-        justify-content: center;
-        height: 9%;
-        width: 100%;
-    }
+Form>.conteiner {
+    display: flex;
+    justify-content: center;
+    height: 9%;
+    width: 100%;
+}
 
-    Form>.conteiner>.dominio {
-        border-radius: 10px;
-        border: 1px solid #BDBDBD;
-        background-color: #E8E8E8;
-        text-align: center;
-        font-size: 18px;
-        color: #353535;
-        font-family: 'Berlin Sans FB', sans-serif;
-        font-weight: normal;
-    }
+Form>.conteiner>.dominio {
+    border-radius: 10px;
+    border: 1px solid #BDBDBD;
+    background-color: #E8E8E8;
+    text-align: center;
+    font-size: 18px;
+    color: #353535;
+    font-family: 'Berlin Sans FB', sans-serif;
+    font-weight: normal;
+}
 
-    .dominio::-webkit-input-placeholder, .account>input::-webkit-input-placeholder {
-        color: #C1BFBD;
-    }
+.dominio::-webkit-input-placeholder, .account>input::-webkit-input-placeholder {
+    color: #C1BFBD;
+}
 
-    .dominio:-moz-placeholder, .account>input:-moz-placeholder {
-        /* Firefox 18- */
-        color: #C1BFBD;
-    }
+.dominio:-moz-placeholder, .account>input:-moz-placeholder {
+    /* Firefox 18- */
+    color: #C1BFBD;
+}
 
-    .dominio::-moz-placeholder, .account>input::-moz-placeholder {
-        /* Firefox 19+ */
-        color: #C1BFBD;
-    }
+.dominio::-moz-placeholder, .account>input::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #C1BFBD;
+}
 
-    .dominio:-ms-input-placeholder, .account>input:-ms-input-placeholder {
-        color: #C1BFBD;
-    }
+.dominio:-ms-input-placeholder, .account>input:-ms-input-placeholder {
+    color: #C1BFBD;
+}
 
-    Form>.account {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        flex-direction: column;
-        height: 50%;
-        width: 100%;
-    }
+Form>.account {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    height: 50%;
+    width: 100%;
+}
 
-    .account>input {
-        font-family: 'Berlin Sans FB', sans-serif;
-        margin: 5px;
-        width: 90%;
-        color: #353535;
-        font-size: 18px;
-        border: 0;
-        padding: 10px;
-        background-color: #E8E8E8;
-        height: 25%;
-    }
+.account>input {
+    font-family: 'Berlin Sans FB', sans-serif;
+    margin: 5px;
+    width: 90%;
+    color: #353535;
+    font-size: 18px;
+    border: 0;
+    padding: 10px;
+    background-color: #E8E8E8;
+    height: 25%;
+}
 
-    .custom-btn {
-        width: 100%;
-        height: 15%;
-        color: #fff;
-        border-radius: 5px;
-        padding: 10px 25px;
-        font-family: 'Lato', sans-serif;
-        font-weight: 500;
-        background: transparent;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        position: relative;
-        display: inline-block;
-         box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
-         7px 7px 20px 0px rgba(0,0,0,.1),
-         4px 4px 5px 0px rgba(0,0,0,.1);
-        outline: none;
-    }
+.custom-btn {
+    width: 100%;
+    height: 15%;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+     box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+     7px 7px 20px 0px rgba(0,0,0,.1),
+     4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+}
 
-    .btn-4 {
-        background-color: #4dccc6;
-      background-image: linear-gradient(315deg, #3e9712 0%, #c6c91a 74%);
-        line-height: 42px;
-        padding: 0;
-        border: none;
-        transition: all 1s ease-in-out;
-      }
-      .btn-4:hover{
-        background-color: #89d8d3;
-      background-image: linear-gradient(315deg, #57ce1c 0%, #c4c71c 74%);
-      }
-      .btn-4 span {
-        position: relative;
-        display: block;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        transform: translate(0, 10%);
-        font-size: 20px;
-        width: 100%;
-        height: 100%;
-      }
-      .btn-4:before,
-      .btn-4:after {
-        position: absolute;
-        content: "";
-        right: 0;
-        top: 0;
-         box-shadow:  4px 4px 6px 0 rgba(255,255,255,.9),
-                    -4px -4px 6px 0 rgba(116, 125, 136, .2), 
-          inset -4px -4px 6px 0 rgba(255,255,255,.9),
-          inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
-        transition: all 0.3s ease;
-      }
-      .btn-4:before {
-        height: 0%;
-        width: .1px;
-      }
-      .btn-4:after {
-        width: 0%;
-        height: .1px;
-      }
-      .btn-4:hover:before {
-        height: 100%;
-      }
-      .btn-4:hover:after {
-        width: 100%;
-      }
-      .btn-4 span:before,
-      .btn-4 span:after {
-        position: absolute;
-        content: "";
-        left: 0;
-        bottom: 0;
-        box-shadow:  4px 4px 6px 0 rgba(255,255,255,.9),
-                    -4px -4px 6px 0 rgba(116, 125, 136, .2), 
-          inset -4px -4px 6px 0 rgba(255,255,255,.9),
-          inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
-        transition: all 0.3s ease;
-      }
-      .btn-4 span:before {
-        width: .1px;
-        height: 0%;
-      }
-      .btn-4 span:after {
-        width: 0%;
-        height: .1px;
-      }
-      .btn-4 span:hover:before {
-        height: 100%;
-      }
-      .btn-4 span:hover:after {
-        width: 100%;
-      }
+.btn-4 {
+    background-color: #4dccc6;
+  background-image: linear-gradient(315deg, #3e9712 0%, #c6c91a 74%);
+    line-height: 42px;
+    padding: 0;
+    border: none;
+    transition: all 1s ease-in-out;
+  }
+  .btn-4:hover{
+    background-color: #89d8d3;
+  background-image: linear-gradient(315deg, #57ce1c 0%, #c4c71c 74%);
+  }
+  .btn-4 span {
+    position: relative;
+    display: block;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transform: translate(0, 10%);
+    font-size: 20px;
+    width: 100%;
+    height: 100%;
+  }
+  .btn-4:before,
+  .btn-4:after {
+    position: absolute;
+    content: "";
+    right: 0;
+    top: 0;
+     box-shadow:  4px 4px 6px 0 rgba(255,255,255,.9),
+                -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+      inset -4px -4px 6px 0 rgba(255,255,255,.9),
+      inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+    transition: all 0.3s ease;
+  }
+  .btn-4:before {
+    height: 0%;
+    width: .1px;
+  }
+  .btn-4:after {
+    width: 0%;
+    height: .1px;
+  }
+  .btn-4:hover:before {
+    height: 100%;
+  }
+  .btn-4:hover:after {
+    width: 100%;
+  }
+  .btn-4 span:before,
+  .btn-4 span:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: 0;
+    box-shadow:  4px 4px 6px 0 rgba(255,255,255,.9),
+                -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+      inset -4px -4px 6px 0 rgba(255,255,255,.9),
+      inset 4px 4px 6px 0 rgba(116, 125, 136, .3);
+    transition: all 0.3s ease;
+  }
+  .btn-4 span:before {
+    width: .1px;
+    height: 0%;
+  }
+  .btn-4 span:after {
+    width: 0%;
+    height: .1px;
+  }
+  .btn-4 span:hover:before {
+    height: 100%;
+  }
+  .btn-4 span:hover:after {
+    width: 100%;
+  }
 
 
 @media screen and (width >= 1921px) {
-    form {
-        max-width: 600px;
-    }
+form {
+    max-width: 600px;
+}
 }

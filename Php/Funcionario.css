@@ -1,0 +1,15 @@
+body 
+{
+    font-family: 'Berlin Sans FB', sans-serif;
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to bottom, #71a557, #e2e497);
+}
+*{margin: 0;}
+
+
+h2{margin-bottom: 1em;}
