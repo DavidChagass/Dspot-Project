@@ -6,7 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Funcionario</title>
-    <link rel="stylesheet" href="Funcionario.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/Funcionario.css">
 </head>
 
 <body>
@@ -16,20 +17,26 @@
     include('Conexao.php');
     $email = $_POST['email'];
     $senha = $_POST['senha'];
+    $dominio = $_POST['dominio'];
 
-    if (isset($_POST['email']) || isset($_POST['senha'])) {
 
+    if (isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['dominio'])) {
 
+        $dominio = $mysqli->real_escape_string($_POST['dominio']);
         $email = $mysqli->real_escape_string($_POST['email']);
         $senha = $mysqli->real_escape_string($_POST['senha']);
 
-        $sql_code = "SELECT * FROM Funcionario WHERE emailFuncionario = '$email' AND senhaFuncionario = '$senha'";
+        $sql_code = "SELECT * FROM Funcionario INNER JOIN Empresa ON(Funcionario.fk_idEmpresa = Empresa.idEmpresa) WHERE Empresa.dominio = '$dominio' AND Funcionario.emailFuncionario = '$email' AND Funcionario.senhaFuncionario = '$senha'";
       
         $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código mysql: " . $mysqli->error);
+
+
     } else {
         echo "senha e email vazios";
     }
+
     foreach ($sql_query as $linha) {
+
 
     ?>
         <table>
@@ -37,6 +44,11 @@
             <tr>
                 <td>
                     <h3>id: <?= $linha['idFuncionario'] ?> </h3>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>Nome Empresa: <?= $linha['nomeEmpresa'] ?> </h3>
                 </td>
             </tr>
             <tr>

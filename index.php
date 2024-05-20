@@ -15,9 +15,9 @@
     <!--[if lt IE 9]>
 	    <script src="bower_components/html5shiv/dist/html5shiv.js"></script>
     <![endif]-->
-    <form action="Php/Funcionarios.php" method="post">
+    <form action="Funcionarios.php" method="post">
         <div class="conteiner">
-            <input type="text" required="required" onchange="domn()" name="dominio" class="dominio" maxlength="10" placeholder="Domínio">
+            <input type="text" required="required" onchange="domn()" name="dominio" class="dominio" maxlength="8" placeholder="Domínio">
         </div>
         <div class="account">
             <input type="email" required="required" name="email" class="email" placeholder="E-mail">
