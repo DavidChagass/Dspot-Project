@@ -1,6 +1,7 @@
-drop database dspot;
 create database dspot;
+
 use dspot;
+
 create table Empresa(
 idEmpresa int primary key auto_increment,
 dominio char(10) not null,
@@ -28,7 +29,7 @@ foreign key(fk_idEmpresa) references empresa(idEmpresa) on delete restrict on up
 )engine=InnoDB;
 
 insert into Empresa(dominio, nomeEmpresa, cnpjEmpresa)
-values('12345-12*3', 'empresa', "123456789123456789");
+values('12345-1*23', 'empresa', "123456789123456789");
+
 insert into Funcionario(fk_idEmpresa ,nomeFuncionario, cpfFuncionario, senhaFuncionario, emailFuncionario)
 values(1, "samuel silva", "063.513.480-21", "samuelsilva", "sanduicheiche@gmail.com");
-select * from empresa;
