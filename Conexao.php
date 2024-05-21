@@ -3,7 +3,7 @@
 
     $usuario = 'root';
     $senha = '';
-    $database = 'medicine';
+    $database = 'Dspot';
     $host = 'localhost';
 
     $mysqli = new mysqli($host, $usuario, $senha, $database);
