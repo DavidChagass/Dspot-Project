@@ -1,6 +1,4 @@
 <?php
-
-
     $usuario = 'root';
     $senha = '';
     $database = 'Dspot';
