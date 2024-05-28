@@ -1,18 +1,21 @@
 <?php
-
+try{
 include('Conexao.php');
 
 // $nomeFuncionario = $_POST['nomeFuncionario'];
 // $nomeEmpresa = $_POST['nomeEmpresa'];
-$email = $_POST['email'];
-$senha = $_POST['senha'];
-$dominio = $_POST['dominio'];
+$email = trim($_POST['email']);
+$senha = trim($_POST['senha']);
+$dominio = trim($_POST['dominio']);
 
-try{
-if (isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['dominio'])) {
 
-    $sql_code = "SELECT * FROM Funcionario INNER JOIN Empresa ON(Funcionario.fk_idEmpresa = Empresa.idEmpresa) WHERE Empresa.dominio = '{$dominio}' AND Funcionario.emailFuncionario = '{$email}' AND Funcionario.senhaFuncionario = '{$senha}'";
+if (isset($email) && isset($senha) && isset($dominio)) {
+
+    $sql_code = "SELECT * FROM Funcionario INNER JOIN Empresa ON(Funcionario.fk_idEmpresa = Empresa.idEmpresa) WHERE Empresa.dominio = :dominio AND Funcionario.emailFuncionario = :email AND Funcionario.senhaFuncionario = :senha";
     $stmt = $pdo->prepare($sql_code);
+    $stmt->bindParam(':dominio', $dominio);
+    $stmt->bindParam(':email', $email);
+    $stmt->bindParam(':senha', $senha);
     $stmt->execute();
     $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $sql_query = $stmt->rowCount();
@@ -22,7 +25,7 @@ if (isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['dominio'])
     echo "senha e email vazios";
 }
 }catch(PDOException $e){
-    $sql_query . $e->getMessage();
+  "erro " . $sql_query . " " . $e->getMessage() and die('erro no sql');
 }
 
 ?>
@@ -58,12 +61,12 @@ if (isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['dominio'])
             </tr>
             <tr>
                 <td>
-                    <h3>Nome Empresa: <?= $linha['nomeEmpresa'] ?> </h3>
+                    <h3>Nome da Empresa: <?= $linha['nomeEmpresa'] ?> </h3>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <h3>nome: <?= $linha['nomeFuncionario'] ?> </h3>
+                    <h3>Nome do funcionario: <?= $linha['nomeFuncionario'] ?> </h3>
                 </td>
             </tr>
             <tr>
