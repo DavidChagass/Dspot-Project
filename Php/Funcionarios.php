@@ -84,7 +84,8 @@ if (isset($_POST['email']) && isset($_POST['senha']) && isset($_POST['dominio'])
         </table>
 
     <section><h2>BEM VINDO AO MENU DA EMPRESA <?= strtoupper($linha['nomeFuncionario']) ?></h2></section>
-    <?php } }else{echo "erro ao mostrar";}?>
+    <?php } }else{echo "<h2>EMAIL OU SENHA INCORRETOS</h2>
+        <button onclick='history.back()'>VOLTAR</button>";}?>
     
 </body>
 </html>
