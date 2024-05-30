@@ -31,5 +31,8 @@ foreign key(fk_idEmpresa) references empresa(idEmpresa) on delete restrict on up
 insert into Empresa(dominio, nomeEmpresa, cnpjEmpresa)
 values('12345-1*23', 'empresa', "123456789123456789");
 
+insert into Gerente(fk_idEmpresa, nomeGerente, senhaGerente, emailGerente) 
+	values(1, "Ronaldo", "ronaldo123","ronaldo@gmail.com");
+
 insert into Funcionario(fk_idEmpresa ,nomeFuncionario, cpfFuncionario, senhaFuncionario, emailFuncionario)
 values(1, "samuel silva", "063.513.480-21", "samuelsilva", "sanduicheiche@gmail.com");
