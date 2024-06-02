@@ -50,7 +50,6 @@ if (isset($email) && isset($senha) && isset($dominio)) {
 
     if($sql_query){
         foreach ($resultado as $linha) {
-
 ?>
         <table>
 
