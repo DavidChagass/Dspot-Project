@@ -87,7 +87,7 @@ if (isset($email) && isset($senha) && isset($dominio)) {
 
     <section><h2>BEM VINDO AO MENU DA EMPRESA <?= strtoupper($linha['nomeFuncionario']) ?></h2></section>
     <?php } }else{echo "<h2>DOMINIO, EMAIL OU SENHA INCORRETOS</h2>
-        <button onclick='history.back()'>VOLTAR</button>";}?>
+         <button class=\"button-3\" onclick='history.back()'>VOLTAR</button>";}?>
     
 </body>
 </html>

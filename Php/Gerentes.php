@@ -4,15 +4,10 @@ include('Conexao.php');
 
 // $nomeFuncionario = $_POST['nomeFuncionario'];
 // $nomeEmpresa = $_POST['nomeEmpresa'];
-if(isset($email) && isset($senha) && isset($dominio)){
+
 $email = trim($_POST['email']);
 $senha = trim($_POST['senha']);
 $dominio = trim($_POST['dominio']);
-}else{
-    $email = "Email nulo";
-    $senha = "Senha nula";
-    $dominio = "Dominio nulo";
-}
 
 if (isset($email) && isset($senha) && isset($dominio)) {
 
@@ -90,9 +85,7 @@ if (isset($email) && isset($senha) && isset($dominio)) {
     <header><h2>BEM VINDO AO MENU DA EMPRESA <p style="color: purple ;"><?= strtoupper($linha['nomeGerente']) ?></p></h2></header>
     <?php } }else{
         echo "<h2>DOMINIO, EMAIL OU SENHA INCORRETOS</h2><br>
-        <button class=\"button-3\" onclick='history.back()'>VOLTAR</button>";     
-
-        echo "<h1>" . $email . "</h1> <br>" . "<h1>" . $senha . "</h1> <br>" .  "<h1>" . $dominio . "</h1> <br>"; }?>
+        <button class=\"button-3\" onclick='history.back()'>VOLTAR</button>"; }?>
     
 </body>
 </html>
