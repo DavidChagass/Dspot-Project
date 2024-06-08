@@ -65,7 +65,7 @@ if (isset($email) && isset($senha) && isset($dominio)) {
             </tr>
             <tr>
                 <td>
-                    <h3>Nome do funcionario: <?= $linha['nomeGerente'] ?> </h3>
+                    <h3>Nome do Gerente: <?= $linha['nomeGerente'] ?> </h3>
                 </td>
             </tr>
             <tr>
@@ -80,7 +80,7 @@ if (isset($email) && isset($senha) && isset($dominio)) {
             </tr>
             <tr>
                 <td>
-                    <h3>dominio: <?= $linha['dominio'] ?></h3>
+                    <h3>dominio: <b style="font-size:1.4rem;"><?= $linha['dominio'] ?></b></h3>
                 </td>
             </tr>
         </table>
