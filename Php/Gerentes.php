@@ -11,7 +11,7 @@ $dominio = trim($_POST['dominio']);
 
 if (isset($email) && isset($senha) && isset($dominio)) {
 
-    $sql_code = "SELECT * FROM Gerente INNER JOIN Empresa ON(Gerente.fk_idEmpresa = Empresa.idEmpresa) WHERE Empresa.dominio = :dominio AND Gerente.emailGerente = :email AND Gerente.senhaGerente = :senha";
+    $sql_code = "SELECT DISTINCT * FROM Gerente INNER JOIN Empresa ON(Gerente.fk_idEmpresa = Empresa.idEmpresa) WHERE Empresa.dominio = :dominio AND Gerente.emailGerente = :email AND Gerente.senhaGerente = :senha";
     $stmt = $pdo->prepare($sql_code);
     $stmt->bindParam(':dominio', $dominio);
     $stmt->bindParam(':email', $email);
