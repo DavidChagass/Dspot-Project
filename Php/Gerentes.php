@@ -80,9 +80,14 @@ if (isset($email) && isset($senha) && isset($dominio)) {
                     <h3>email: <?= $linha['emailGerente'] ?></h3>
                 </td>
             </tr>
+            <tr>
+                <td>
+                    <h3>dominio: <?= $linha['dominio'] ?></h3>
+                </td>
+            </tr>
         </table>
 
-    <header><h2>BEM VINDO AO MENU DA EMPRESA <p style="color: purple ;"><?= strtoupper($linha['nomeGerente']) ?></p></h2></header>
+    <header><h2>BEM VINDO AO MENU DA EMPRESA <?= strtoupper($linha['nomeGerente']) ?></h2></header>
     <?php } }else{
         echo "<h2>DOMINIO, EMAIL OU SENHA INCORRETOS</h2><br>
         <button class=\"button-3\" onclick='history.back()'>VOLTAR</button>"; }?>
