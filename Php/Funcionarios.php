@@ -1,17 +1,15 @@
 <?php
 try{
-include('Conexao.php');
+include('../DAL/Conexao.php');
 
-// $nomeFuncionario = $_POST['nomeFuncionario'];
-// $nomeEmpresa = $_POST['nomeEmpresa'];
-$email = trim($_POST['email']);
-$senha = trim($_POST['senha']);
-$dominio = trim($_POST['dominio']);
+include('../Dspot-Project/Dto/Pessoa.php');
 
-
+$login = new Pessoa($_POST['dominio'], $_POST['email'], $_POST['senha']);
+$mostrar = $login->login();
 if (isset($email) && isset($senha) && isset($dominio)) {
 
-    $sql_code = "SELECT DISTINCT * FROM Funcionario INNER JOIN Empresa ON(Funcionario.fk_idEmpresa = Empresa.idEmpresa) WHERE Empresa.dominio = :dominio AND Funcionario.emailFuncionario = :email AND Funcionario.senhaFuncionario = :senha";
+    $sql_code = "SELECT DISTINCT * FROM Funcionario INNER JOIN Empresa ON(Funcionario.fk_idEmpresa = Empresa.idEmpresa) 
+    WHERE Empresa.dominio = :dominio AND Funcionario.emailFuncionario = :email AND Funcionario.senhaFuncionario = :senha";
     $stmt = $pdo->prepare($sql_code);
     $stmt->bindParam(':dominio', $dominio);
     $stmt->bindParam(':email', $email);
