@@ -1,1 +1,2 @@
-
+<?php
+// atributos do objeto
