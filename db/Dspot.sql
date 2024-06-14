@@ -28,6 +28,10 @@ emailGerente varchar(150) not null,
 foreign key(fk_idEmpresa) references empresa(idEmpresa) on delete restrict on update restrict
 )engine=InnoDB;
 
+-- criar tabela estoque
+-- colunas: id, nomeProduto, detalhes, quantidadeAtual, dataEntrada, dataUltimaModificacao, perecivel = bool, dataValidade, precoCompra
+-- precoVenda, fornecedor, quantidadeTotal, idEmpresa=fk
+
 insert into Empresa(dominio, nomeEmpresa, cnpjEmpresa)
 values('12345-1*23', 'empresa', "123456789123456789");
 
