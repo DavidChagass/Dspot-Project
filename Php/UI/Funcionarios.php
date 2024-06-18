@@ -1,31 +1,18 @@
 <?php
-try{
-include('../DAL/Conexao.php');
+include('/xampp/htdocs/Dspot-Project/BLL/FuncionariosBLL.php');
 
-include('../Dspot-Project/Dto/Pessoa.php');
+$dominio = $_POST['dominio'];
+$email = $_POST['email'];
+$senha = $_POST['senha'];
 
-$login = new Pessoa($_POST['dominio'], $_POST['email'], $_POST['senha']);
-$mostrar = $login->login();
-if (isset($email) && isset($senha) && isset($dominio)) {
-
-    $sql_code = "SELECT DISTINCT * FROM Funcionario INNER JOIN Empresa ON(Funcionario.fk_idEmpresa = Empresa.idEmpresa) 
-    WHERE Empresa.dominio = :dominio AND Funcionario.emailFuncionario = :email AND Funcionario.senhaFuncionario = :senha";
-    $stmt = $pdo->prepare($sql_code);
-    $stmt->bindParam(':dominio', $dominio);
-    $stmt->bindParam(':email', $email);
-    $stmt->bindParam(':senha', $senha);
-    $stmt->execute();
-    $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    $sql_query = $stmt->rowCount();
-
-
-} else {
-    echo "senha e email vazios";
-}
-}catch(PDOException $e){
-  "erro " . $sql_query . " " . $e->getMessage() and die('erro no sql');
-}
-
+/* $dominio = "12345-1*23";
+$email = 'sanduicheiche@gmail.com';
+$senha = "samuelsilva";
+ */
+$funcionarios = new FuncionariosBLL($dominio, $email, $senha);
+$funcionarios->LoginFuncionario($dominio,$email,$senha);
+$funcionarios = $abc;
+echo $abc;
 ?>
 
 

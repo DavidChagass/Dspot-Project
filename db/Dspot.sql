@@ -29,6 +29,24 @@ foreign key(fk_idEmpresa) references empresa(idEmpresa) on delete restrict on up
 )engine=InnoDB;
 
 -- criar tabela estoque
+create table Estoque(
+idEstoque int primary key auto_increment,
+fk_idEstoque int not null,
+fk_idEmpresa int not null,
+nomeProduto varchar(200) not null,
+detalhes varchar(255) ,
+quantidadeAtual int(200) not null,
+dataEntrada datetime not null,
+dataUltimaModificacao datetime not null,
+perecivel boolean,
+dataValidade date not null,
+precoCompra float(5,2) not null,
+fornecedor varchar(255) not null,
+quantidadeTotal int(255) not null,
+foreign key(fk_idEmpresa) references empresa(idEmpresa) on delete restrict on update restrict
+)engine=InnoDB;
+
+
 -- colunas: id, nomeProduto, detalhes, quantidadeAtual, dataEntrada, dataUltimaModificacao, perecivel = bool, dataValidade, precoCompra
 -- precoVenda, fornecedor, quantidadeTotal, idEmpresa=fk
 
