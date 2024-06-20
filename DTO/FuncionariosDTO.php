@@ -13,10 +13,5 @@ public function __construct($dominio, $email, $senha){
 
 // funções do objeto
 
-/*     public function getCpfFuncionario(){
-        return $this->cpfFuncionario;
-    }
-    public function getIdFuncionario(){
-        return $this->idFuncionario;
-    } */
 }
+?>

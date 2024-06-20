@@ -1,15 +1,18 @@
 <?php
-
-include('/xampp/htdocs/Dspot-Project/DTO/FuncionariosDTO.php');
+require_once '../DAL/Conexao.php';
+require_once '../DTO/FuncionariosDTO.php';
 /* $dominio = $_POST['dominio'];
 $email = $_POST['email'];
 $senha = $_POST['senha']; */
 
-$conn = new Conexao();
-$conn = $conn->retornaConexao();
+$conn = new Conexao;
+
 class FuncionariosBLL extends Funcionario {
-    
+
     function LoginFuncionario($dominio, $email, $senha){
+
+        global $conn;
+        $conn = $conn->retornaConexao();
 
         $sql_code = "SELECT DISTINCT * FROM Gerente INNER JOIN Empresa ON(Gerente.fk_idEmpresa = Empresa.idEmpresa)
         WHERE Empresa.dominio = :dominio AND Gerente.emailGerente = :email AND Gerente.senhaGerente = :senha";
@@ -22,3 +25,8 @@ class FuncionariosBLL extends Funcionario {
         return $resultado;
     }
 }
+
+
+
+var_dump($resultado);
+?>
