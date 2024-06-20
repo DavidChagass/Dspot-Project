@@ -10,7 +10,7 @@ $conn = new Conexao;
 class FuncionariosBLL extends Funcionario {
 
     function LoginFuncionario($dominio, $email, $senha){
-
+        $resultado = 0;
         global $conn;
         $conn = $conn->retornaConexao();
 
