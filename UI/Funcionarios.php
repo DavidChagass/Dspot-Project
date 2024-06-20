@@ -6,11 +6,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $senha = $_POST['senha'];
 
-    $funcionariosBLL = new FuncionariosBLL($dominio, $email, $senha);
-    $resultados = $funcionariosBLL->LoginFuncionario($dominio, $email, $senha);
+    
+    $resultados = FuncionariosBLL::LoginFuncionario($dominio, $email, $senha);
+/*
+    if ($resultados) {
+        $dominio = htmlspecialchars($resultados['dominio']);
+        $email = htmlspecialchars($resultados['emailFuncionario']);
+        echo "<table>
+                <tr><td><h3>Dominio: $dominio</h3></td></tr>
+                <tr><td><h3>Email: $email</h3></td></tr>
+                <tr><td><h3>Senha: $senha</h3></td></tr>
+              </table>";
+        echo "<section><h2>BEM VINDO AO MENU DA EMPRESA</h2></section>";
+    } else {
+        echo "Login inválido";
+    }*/
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -26,31 +38,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
 
+<table>
+                <tr><td><h3>Dominio:<?= $dominio ?></h3></td></tr>
+                <tr><td><h3>Email:<?= $email ?></h3></td></tr>
+                <tr><td><h3>Senha:<?= $senha ?></h3></td></tr>
+              </table>
 
-<?php 
-        foreach ($resultados as $linha) {
-?>
-        <table>
 
-            <tr>
-                <td>
-                    <h3>Dominio: <?= $linha->dominio ?> </h3>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <h3>Email: <?= $linha->email ?> </h3>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <h3>Senha: <?= $linha->senha ?> </h3>
-                </td>
-            </tr>
-        </table>
-
-    <section><h2>BEM VINDO AO MENU DA EMPRESA</h2></section>
-    <?php }?>
     
 </body>
 </html>
