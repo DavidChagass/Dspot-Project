@@ -5,22 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $dominio = $_POST['dominio'];
     $email = $_POST['email'];
     $senha = $_POST['senha'];
-
-    
     $resultados = FuncionariosBLL::LoginFuncionario($dominio, $email, $senha);
-/*
-    if ($resultados) {
-        $dominio = htmlspecialchars($resultados['dominio']);
-        $email = htmlspecialchars($resultados['emailFuncionario']);
-        echo "<table>
-                <tr><td><h3>Dominio: $dominio</h3></td></tr>
-                <tr><td><h3>Email: $email</h3></td></tr>
-                <tr><td><h3>Senha: $senha</h3></td></tr>
-              </table>";
-        echo "<section><h2>BEM VINDO AO MENU DA EMPRESA</h2></section>";
-    } else {
-        echo "Login inválido";
-    }*/
 }
 ?>
 
@@ -38,13 +23,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
 
-<table>
-                <tr><td><h3>Dominio:<?= $dominio ?></h3></td></tr>
-                <tr><td><h3>Email:<?= $email ?></h3></td></tr>
-                <tr><td><h3>Senha:<?= $senha ?></h3></td></tr>
-              </table>
-
-
-    
+    <table>
+        <tr>
+            <td>
+                <h3>Dominio:<?= $dominio ?></h3>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h3>Email:<?= $email ?></h3>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h3>Senha:<?= $senha ?></h3>
+            </td>
+        </tr>
+    </table>
 </body>
+
 </html>
