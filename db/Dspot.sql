@@ -58,3 +58,9 @@ insert into Gerente(fk_idEmpresa, nomeGerente, senhaGerente, emailGerente)
 
 insert into Funcionario(fk_idEmpresa ,nomeFuncionario, cpfFuncionario, senhaFuncionario, emailFuncionario)
 values(1, "samuel silva", "063.513.480-21", "samuelsilva", "sanduicheiche@gmail.com");
+
+SELECT COUNT(*) AS numFuncionarios FROM Funcionario 
+INNER JOIN Empresa ON Funcionario.fk_idEmpresa = Empresa.idEmpresa 
+  WHERE Empresa.dominio = :dominio 
+AND Funcionario.emailFuncionario = :email 
+ AND senhaFuncionario = :senha;
