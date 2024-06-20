@@ -1,32 +1,32 @@
 <?php
 require_once '../DAL/Conexao.php';
 require_once '../DTO/FuncionariosDTO.php';
-/* $dominio = $_POST['dominio'];
-$email = $_POST['email'];
-$senha = $_POST['senha']; */
+
 
 $conn = new Conexao;
 
 class FuncionariosBLL extends Funcionario {
 
     function LoginFuncionario($dominio, $email, $senha){
-        $resultado = 0;
+
         global $conn;
         $conn = $conn->retornaConexao();
 
-        $sql_code = "SELECT DISTINCT * FROM Gerente INNER JOIN Empresa ON(Gerente.fk_idEmpresa = Empresa.idEmpresa)
-        WHERE Empresa.dominio = :dominio AND Gerente.emailGerente = :email AND Gerente.senhaGerente = :senha";
+        $sql_code = "SELECT *
+         FROM Funcionario
+          INNER JOIN Empresa ON(Funcionario.fk_idEmpresa = Empresa.idEmpresa)
+        WHERE Empresa.dominio = :dominio AND
+         Funcionario.emailFuncionario = :email AND Funcionario.senhaFuncionario = :senha";
         $stmt = $conn->prepare($sql_code);
         $stmt->bindParam(':dominio', $dominio);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':senha', $senha);
         $stmt->execute();
-        $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $resultado = $stmt->fetchAll(PDO::FETCH_OBJ);
         return $resultado;
     }
 }
 
 
 
-var_dump($resultado);
 ?>
