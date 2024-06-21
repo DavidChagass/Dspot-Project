@@ -25,9 +25,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $dominio = htmlspecialchars($resultados['dominio']);
     $email = htmlspecialchars($resultados['emailFuncionario']);
     $senha = htmlspecialchars($resultados['senhaFuncionario']);
-
-
-
 ?>
     <table>
         <tr>

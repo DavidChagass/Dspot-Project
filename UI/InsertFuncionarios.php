@@ -6,7 +6,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nomeFuncionario = $_POST['nome'];
     $email = $_POST['email'];
     $senha = $_POST['senha'];
-    $resultados = GerentesBLL::cadfuncionario($idempresa, $nomeFuncionario, $email, $senha);
+    $message = GerentesBLL::cadfuncionario($idempresa, $nomeFuncionario, $email, $senha);
+    echo $message;
 }
 ?>
 
@@ -22,28 +23,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
 
-    <table>
-        <tr>
-            <td>
-                <h3>id da empresa: <?= $idempresa ?></h3>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h3>Nome do funcionario: <?= $nomeFuncionario ?></h3>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h3>Email: <?= $email ?></h3>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h3>Senha: <?= $senha ?></h3>
-            </td>
-        </tr>
-    </table>
 </body>
 
 </html>
