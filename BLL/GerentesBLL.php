@@ -50,6 +50,6 @@ class GerenteBLL extends GerenteDTO
             return $retorno;
         } catch (PDOException $e) {
         }
-}//s
-v
+}
+
 }
