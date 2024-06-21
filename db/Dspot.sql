@@ -44,7 +44,8 @@ quantidadeTotal int(255) not null,
 foreign key(fk_idEmpresa) references empresa(idEmpresa) on delete restrict on update restrict
 )engine=InnoDB;
 
-drop table estoque;
+-- drop table estoque;
+-- drop table Funcionario;
 
 -- colunas: id, nomeProduto, detalhes, quantidadeAtual, dataEntrada, dataUltimaModificacao, perecivel = bool, dataValidade, precoCompra
 -- precoVenda, fornecedor, quantidadeTotal, idEmpresa=fk
@@ -55,8 +56,8 @@ values('12345-1*23', 'empresa', "123456789123456789");
 insert into Gerente(fk_idEmpresa, nomeGerente, senhaGerente, emailGerente) 
 	values(1, "Ronaldo", "ronaldo123","ronaldo@gmail.com");
 
-insert into Funcionario(fk_idEmpresa ,nomeFuncionario, cpfFuncionario, senhaFuncionario, emailFuncionario)
-values(1, "samuel silva", "063.513.480-21", "samuelsilva", "sanduicheiche@gmail.com");
+insert into Funcionario(fk_idEmpresa ,nomeFuncionario, senhaFuncionario, emailFuncionario)
+values(1, "samuel silva", "samuelsilva", "sanduicheiche@gmail.com");
 
 delimiter $
 create procedure logFuncionario(
@@ -78,31 +79,20 @@ delimiter ;
 
 delimiter $
 create procedure CadFuncionario(
-  in cad_dominio char(10),
+  in idempresa int,
   in cad_nomeFuncionario varchar(200),
   in cad_emailFuncionario varchar(150),
   in cad_senhaFuncionario varchar(20) 
   )
     BEGIN
-      insert into Funcionario() WHERE 
-
-
-
-
-
-
-
-
-
-
+      insert into Funcionario(fk_idempresa, nomeFuncionario, emailFuncionario, senhaFuncionario)
+      values(idempresa, cad_nomeFuncionario,cad_emailFuncionario, cad_senhaFuncionario);
     END$
-
-
-
-
 
 delimiter ;
 
 
-
+-- drop procedure cadfuncionario;
+-- call CadFuncionario(1,'rosangela', 'rosangela@gmail.com', 'rosa12345');
 -- call logFuncionario('12345-1*23', "sanduicheiche@gmail.com", "samuelsilva");
+-- select * from funcionario;

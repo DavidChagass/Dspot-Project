@@ -11,7 +11,11 @@ class FuncionariosBLL extends FuncionarioDTO
         $connObj = new Conexao();
         $conn = $connObj->retornaConexao();
 
-        $sql_code = "call logFuncionario(:dominio, :email, :senha)";
+        $sql_code = "SELECT * FROM Funcionario 
+                INNER JOIN Empresa ON Funcionario.fk_idEmpresa = Empresa.idEmpresa 
+                WHERE Empresa.dominio = :dominio AND 
+                Funcionario.emailFuncionario = :email AND 
+                senhaFuncionario = :senha;";
 
         $stmt = $conn->prepare($sql_code);
         $stmt->bindParam(':dominio', $dominio);
@@ -19,6 +23,8 @@ class FuncionariosBLL extends FuncionarioDTO
         $stmt->bindParam(':senha', $senha);
         $stmt->execute();
         $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $resultado;
+    
+            return $resultado;
+        }
     }
-}
+

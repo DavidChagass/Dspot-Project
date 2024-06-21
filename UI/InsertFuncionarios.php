@@ -1,11 +1,12 @@
 <?php
-require_once '../BLL/FuncionariosBLL.php';
+require_once '../BLL/GerentesBLL.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $dominio = $_POST['dominio'];
+    $idempresa = $_POST['idEmpresa'];
+    $nomeFuncionario = $_POST['nome'];
     $email = $_POST['email'];
     $senha = $_POST['senha'];
-    $resultados = FuncionariosBLL::LoginFuncionario($dominio, $email, $senha);
+    $resultados = GerentesBLL::cadfuncionario($idempresa, $nomeFuncionario, $email, $senha);
 }
 ?>
 
@@ -20,37 +21,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-<?php 
- if ($resultados) {
-    $dominio = htmlspecialchars($resultados['dominio']);
-    $email = htmlspecialchars($resultados['emailFuncionario']);
-    $senha = htmlspecialchars($resultados['senhaFuncionario']);
 
-
-
-?>
     <table>
         <tr>
             <td>
-                <h3>Dominio: <?= $dominio ?> </h3>
+                <h3>id da empresa: <?= $idempresa ?></h3>
             </td>
         </tr>
         <tr>
             <td>
-                <h3>Email: <?= $email ?>  </h3>
+                <h3>Nome do funcionario: <?= $nomeFuncionario ?></h3>
             </td>
         </tr>
         <tr>
             <td>
-                <h3>Senha:<?= $senha ?>  </h3>
+                <h3>Email: <?= $email ?></h3>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h3>Senha: <?= $senha ?></h3>
             </td>
         </tr>
     </table>
-    <?php 
-        } else {
-            echo "Login inválido";
-        }
-        ?>
 </body>
 
 </html>
