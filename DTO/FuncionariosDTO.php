@@ -1,6 +1,6 @@
 <?php
 include('Pessoa.php');
-class Funcionario extends Pessoa{
+class FuncionarioDTO extends Pessoa{
 // atributos do objeto
 
 

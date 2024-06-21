@@ -3,16 +3,16 @@ require_once '../DAL/Conexao.php';
 require_once '../DTO/FuncionariosDTO.php';
 
 
-class FuncionariosBLL extends Funcionario {
+class FuncionariosBLL extends FuncionarioDTO
+{
 
-    public static function LoginFuncionario($dominio, $email, $senha) {
+    public static function LoginFuncionario($dominio, $email, $senha)
+    {
         $connObj = new Conexao();
         $conn = $connObj->retornaConexao();
 
-        $sql_code = "SELECT * FROM Funcionario 
-                     INNER JOIN Empresa ON Funcionario.fk_idEmpresa = Empresa.idEmpresa 
-                     WHERE Empresa.dominio = :dominio AND Funcionario.emailFuncionario = :email AND senhaFuncionario = :senha";
-        
+        $sql_code = "call logFuncionario(:dominio, :email, :senha)";
+
         $stmt = $conn->prepare($sql_code);
         $stmt->bindParam(':dominio', $dominio);
         $stmt->bindParam(':email', $email);
@@ -22,7 +22,3 @@ class FuncionariosBLL extends Funcionario {
         return $resultado;
     }
 }
-
-
-
-?>

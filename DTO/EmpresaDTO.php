@@ -1,6 +1,6 @@
 <?php
 // atributos do objeto
-class Emprender{
+class Empresa{
     private $dominio;
     private $email;
     private $senha;

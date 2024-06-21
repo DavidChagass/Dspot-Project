@@ -24,17 +24,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <table>
         <tr>
             <td>
-                <h3>Dominio:<?= $dominio ?></h3>
+                <h3>Dominio: <?= $dominio ?></h3>
             </td>
         </tr>
         <tr>
             <td>
-                <h3>Email:<?= $email ?></h3>
+                <h3>Email: <?= $email ?></h3>
             </td>
         </tr>
         <tr>
             <td>
-                <h3>Senha:<?= $senha ?></h3>
+                <h3>Senha: <?= $senha ?></h3>
             </td>
         </tr>
     </table>

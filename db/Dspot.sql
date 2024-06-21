@@ -13,7 +13,6 @@ create table Funcionario(
 idFuncionario int primary key auto_increment not null,
 fk_idEmpresa int not null,
 nomeFuncionario varchar(200) not null,
-cpfFuncionario char(14) not null,
 senhaFuncionario varchar(20) not null,
 emailFuncionario varchar(150) not null,
 foreign key(fk_idEmpresa) references empresa(idEmpresa) on delete restrict on update restrict
@@ -31,7 +30,6 @@ foreign key(fk_idEmpresa) references empresa(idEmpresa) on delete restrict on up
 -- criar tabela estoque
 create table Estoque(
 idEstoque int primary key auto_increment,
-fk_idEstoque int not null,
 fk_idEmpresa int not null,
 nomeProduto varchar(200) not null,
 detalhes varchar(255) ,
@@ -46,6 +44,7 @@ quantidadeTotal int(255) not null,
 foreign key(fk_idEmpresa) references empresa(idEmpresa) on delete restrict on update restrict
 )engine=InnoDB;
 
+drop table estoque;
 
 -- colunas: id, nomeProduto, detalhes, quantidadeAtual, dataEntrada, dataUltimaModificacao, perecivel = bool, dataValidade, precoCompra
 -- precoVenda, fornecedor, quantidadeTotal, idEmpresa=fk
@@ -59,8 +58,51 @@ insert into Gerente(fk_idEmpresa, nomeGerente, senhaGerente, emailGerente)
 insert into Funcionario(fk_idEmpresa ,nomeFuncionario, cpfFuncionario, senhaFuncionario, emailFuncionario)
 values(1, "samuel silva", "063.513.480-21", "samuelsilva", "sanduicheiche@gmail.com");
 
-SELECT COUNT(*) AS numFuncionarios FROM Funcionario 
-INNER JOIN Empresa ON Funcionario.fk_idEmpresa = Empresa.idEmpresa 
-  WHERE Empresa.dominio = :dominio 
-AND Funcionario.emailFuncionario = :email 
- AND senhaFuncionario = :senha;
+delimiter $
+create procedure logFuncionario(
+  in Login_dominio_funcionario char(10),
+   in Login_email_funcionario varchar(150),
+   in Login_senha_funcionario varchar(20)
+  )
+  BEGIN
+
+    SELECT *
+       FROM Funcionario 
+          INNER JOIN Empresa ON Funcionario.fk_idEmpresa = Empresa.idEmpresa 
+      WHERE Empresa.dominio = Login_dominio_funcionario AND 
+      Funcionario.emailFuncionario = Login_email_funcionario AND 
+      senhaFuncionario = Login_senha_funcionario;
+  END$
+  
+delimiter ;
+
+delimiter $
+create procedure CadFuncionario(
+  in cad_dominio char(10),
+  in cad_nomeFuncionario varchar(200),
+  in cad_emailFuncionario varchar(150),
+  in cad_senhaFuncionario varchar(20) 
+  )
+    BEGIN
+      insert into Funcionario() WHERE 
+
+
+
+
+
+
+
+
+
+
+    END$
+
+
+
+
+
+delimiter ;
+
+
+
+-- call logFuncionario('12345-1*23', "sanduicheiche@gmail.com", "samuelsilva");
