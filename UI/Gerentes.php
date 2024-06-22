@@ -61,6 +61,10 @@ if(!empty($dominio)) {
     }
     ?>
 
+<a href="CadastrarFuncionarios.php">Cadastre seus funcionarios</a>
+
+
+
 </body>
 
 </html>
