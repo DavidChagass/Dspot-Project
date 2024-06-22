@@ -23,6 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <?php 
  if ($resultados) {
     $dominio = htmlspecialchars($resultados['dominio']);
+    $nome = htmlspecialchars($resultados['nomeFuncionario']);
     $email = htmlspecialchars($resultados['emailFuncionario']);
     $senha = htmlspecialchars($resultados['senhaFuncionario']);
 ?>
@@ -30,6 +31,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <tr>
             <td>
                 <h3>Dominio: <?= $dominio ?> </h3>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h3>Nome do funcionario: <?= $nome ?> </h3>
             </td>
         </tr>
         <tr>

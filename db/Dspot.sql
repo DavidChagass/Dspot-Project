@@ -75,7 +75,28 @@ create procedure logFuncionario(
       senhaFuncionario = Login_senha_funcionario;
   END$
   
+
 delimiter ;
+
+ 
+delimiter $
+create procedure logGerentes(
+  in Login_dominio_gerente char(10),
+   in Login_email_gerente varchar(150),
+   in Login_senha_gerente varchar(20)
+  )
+  BEGIN
+
+    SELECT *
+       FROM Gerente 
+          INNER JOIN Empresa ON Gerente.fk_idEmpresa = Empresa.idEmpresa 
+      WHERE Empresa.dominio = Login_dominio_gerente AND 
+      Gerente.emailGerente = Login_email_gerente AND 
+      senhaGerente= Login_senha_gerente;
+  END$
+  
+delimiter ;
+
 
 delimiter $
 create procedure CadFuncionario(
@@ -90,6 +111,26 @@ create procedure CadFuncionario(
     END$
 
 delimiter ;
+
+delimiter $ 
+create procedure contFuncionarios(
+  in dominioEmpresa char(10),
+  out quantidadeTotal int
+)
+BEGIN
+  select count(idFuncionario) INTO quantidadeTotal, nomeFuncionario 
+    from funcionario 
+    inner join empresa on funcionario.fk_idEmpresa = empresa.idempresa
+    WHERE dominio = dominioEmpresa;
+END$
+delimiter ;
+
+-- drop procedure contFuncionarios;
+-- call contFuncionarios('12345-1*23');
+
+
+
+
 
 
 -- drop procedure cadfuncionario;
