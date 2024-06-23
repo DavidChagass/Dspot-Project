@@ -8,8 +8,7 @@ class GerentesBLL extends GerenteDTO
     {
         $connObj = new Conexao();
         $conn = $connObj->retornaConexao();
-        $sql_code = "INSERT INTO Funcionario (nomeFuncionario, emailFuncionario, senhaFuncionario, fk_idEmpresa) 
-                       VALUES (:nomeFuncionario, :email, :senha, :idEmpresa)";
+        $sql_code = "call CadFuncionario(:idEmpresa, :nomeFuncionario, :email, :senha)";
 
         $stmt = $conn->prepare($sql_code);
         $stmt->bindParam(':idEmpresa', $idempresa);
@@ -36,7 +35,7 @@ class GerentesBLL extends GerenteDTO
         $stmt->bindParam(':senha', $senha);
         $stmt->execute();
         $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
-
+        
         return $resultado;
     }
 

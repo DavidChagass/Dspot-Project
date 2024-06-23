@@ -7,11 +7,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $senha = $_POST['senha'];
     $resultados = GerentesBLL::LogGerentes($dominio, $email, $senha);
 }
-
+/* 
 if(!empty($dominio)) {
     $totalFuncionarios = GerentesBLL::ContFuncionario($dominio);
     echo "<h3>TOTAL FUNCIONARIOS: " . $totalFuncionarios . "</h3>";
-}
+} */
 ?>
 
 <!DOCTYPE html>
@@ -56,12 +56,18 @@ if(!empty($dominio)) {
             </tr>
         </table>
     <?php
+
+        if(!empty($dominio)) {
+        $totalFuncionarios = GerentesBLL::ContFuncionario($dominio);
+        echo "<h3>TOTAL FUNCIONARIOS: " . $totalFuncionarios . "</h3>";
+        echo "<a href=\"CadastrarFuncionarios.php\">Cadastre seus funcionarios</a>";
+        }
+
     } else {
         echo "Login inválido";
     }
     ?>
 
-<a href="CadastrarFuncionarios.php">Cadastre seus funcionarios</a>
 
 
 
