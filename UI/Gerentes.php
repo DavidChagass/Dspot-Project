@@ -66,11 +66,8 @@ if(!empty($dominio)) {
     } else {
         echo "Login inválido";
     }
+
     ?>
-
-
-
-
 </body>
 
 </html>
