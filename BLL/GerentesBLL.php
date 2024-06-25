@@ -27,7 +27,7 @@ class GerentesBLL extends GerenteDTO
         $connObj = new Conexao();
         $conn = $connObj->retornaConexao();
 
-        $sql_code = "call logGerentes(:dominio, :email, :senha)";
+        $sql_code = "call logGerente(:dominio, :email, :senha)";
 
         $stmt = $conn->prepare($sql_code);
         $stmt->bindParam(':dominio', $dominio);

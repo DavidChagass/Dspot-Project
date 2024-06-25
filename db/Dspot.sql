@@ -13,7 +13,7 @@ create table Funcionario(
 idFuncionario int primary key auto_increment not null,
 fk_idEmpresa int not null,
 nomeFuncionario varchar(200) not null,
-senhaFuncionario varchar(20) not null,
+senhaFuncionario varchar(255) not null,
 emailFuncionario varchar(150) not null,
 foreign key(fk_idEmpresa) references empresa(idEmpresa) on delete restrict on update restrict
 )engine=InnoDB;
@@ -22,7 +22,7 @@ create table Gerente(
 idGerente int primary key auto_increment,
 fk_idEmpresa int not null,
 nomeGerente varchar(200) not null,
-senhaGerente varchar(20) not null,
+senhaGerente varchar(255) not null,
 emailGerente varchar(150) not null,
 foreign key(fk_idEmpresa) references empresa(idEmpresa) on delete restrict on update restrict
 )engine=InnoDB;
@@ -74,7 +74,7 @@ delimiter $
 create procedure logFuncionario(
   in Login_dominio_funcionario char(10),
    in Login_email_funcionario varchar(150),
-   in Login_senha_funcionario varchar(20)
+   in Login_senha_funcionario varchar(255)
   )
   BEGIN
 
@@ -92,10 +92,10 @@ delimiter ;
 
 
 delimiter $
-create procedure logGerentes(
+create procedure logGerente(
   in Login_dominio_gerente char(10),
    in Login_email_gerente varchar(150),
-   in Login_senha_gerente varchar(20)
+   in Login_senha_gerente varchar(255)
   )
   BEGIN
 
@@ -115,7 +115,7 @@ create procedure CadFuncionario(
   in idempresa int,
   in cad_nomeFuncionario varchar(200),
   in cad_emailFuncionario varchar(150),
-  in cad_senhaFuncionario varchar(20) 
+  in cad_senhaFuncionario varchar(255) 
   )
     BEGIN
       insert into Funcionario(fk_idempresa, nomeFuncionario, emailFuncionario, senhaFuncionario)
@@ -139,12 +139,16 @@ delimiter ;
 
 -- drop procedure contFuncionarios;
 -- call contFuncionarios('12345-1*23');
-select * from gerente;
-select * from empresa;
-delete from empresa where idempresa = 2;
-delete from funcionario where fk_idempresa = 2;
-delete from gerente where fk_idempresa = 2;
-
+ select * from gerente;
+-- select * from empresa;
+ select * from funcionario;
+-- delete from empresa where idempresa = 2;
+-- delete from funcionario where fk_idempresa = 2;
+-- delete from gerente where fk_idempresa = 2;
+-- drop procedure logFuncionario;
+ drop procedure logGerente;
+-- drop table funcionario;
+-- drop table gerente;
 -- drop procedure cadfuncionario;
 -- call CadFuncionario(1,'rosangela', 'rosangela@gmail.com', 'rosa12345');
 -- call logFuncionario('12345-1*23', "sanduicheiche@gmail.com", "samuelsilva");
