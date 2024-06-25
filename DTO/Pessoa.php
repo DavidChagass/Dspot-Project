@@ -1,5 +1,5 @@
 <?php
-    class Pessoa{
+   abstract class Pessoa{
     private $dominio;
     private $email;
     private $senha;
@@ -14,7 +14,7 @@
 
 
       public function getDominio() {
-        return $this->dominio;
+        return $this->dominio;  
       }
 
       public function getEmail() {
