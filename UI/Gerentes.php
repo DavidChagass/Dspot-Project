@@ -60,7 +60,7 @@ if(!empty($dominio)) {
         if(!empty($dominio)) {
         $totalFuncionarios = GerentesBLL::ContFuncionario($dominio);
         echo "<h3>TOTAL FUNCIONARIOS: " . $totalFuncionarios . "</h3>";
-        echo "<a class=\"button-3\" href=\"CadastrarFuncionarios.php\">Cadastre seus funcionarios</a>";
+        echo "<a class=\"btn-3 \" href=\"CadastrarFuncionarios.php\">Cadastre seus funcionarios</a>";
         }
 
     } else {
