@@ -4,6 +4,9 @@ require_once '../DTO/GerenteDTO.php';
 
 class GerentesBLL extends GerenteDTO
 {
+
+    //Cadastrar Funcionarios
+
     public static function cadfuncionario($idempresa, $nomeFuncionario, $email, $senha)
     {
         $connObj = new Conexao();
@@ -22,6 +25,8 @@ class GerentesBLL extends GerenteDTO
         }
     }
 
+    //Login De Gerentes
+    
     public static function LogGerentes($dominio, $email, $senha)
     {
         $connObj = new Conexao();
@@ -38,7 +43,7 @@ class GerentesBLL extends GerenteDTO
         
         return $resultado;
     }
-
+    // Contar A Quantidade De Funcionarios
 
     public static function ContFuncionario($dominio)
     {
