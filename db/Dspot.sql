@@ -139,14 +139,14 @@ delimiter ;
 
 -- drop procedure contFuncionarios;
 -- call contFuncionarios('12345-1*23');
- select * from gerente;
+-- select * from gerente;
 -- select * from empresa;
- select * from funcionario;
+-- select * from funcionario;
 -- delete from empresa where idempresa = 2;
 -- delete from funcionario where fk_idempresa = 2;
 -- delete from gerente where fk_idempresa = 2;
 -- drop procedure logFuncionario;
- drop procedure logGerente;
+-- drop procedure logGerente;
 -- drop table funcionario;
 -- drop table gerente;
 -- drop procedure cadfuncionario;
