@@ -1,9 +1,9 @@
 <?php
-require_once '../DAL/Conexao.php';
-require_once '../DTO/FuncionariosDTO.php';
+require_once 'Conexao.php';
+require_once '../Model/FuncionariosDTO.php';
 
 
-class FuncionariosBLL extends FuncionarioDTO
+class FuncionariosBLL extends FuncionariosDTO
 {
 
     public static function LoginFuncionario($dominio, $email, $senha)

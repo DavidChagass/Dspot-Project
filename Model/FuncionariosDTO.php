@@ -1,6 +1,6 @@
 <?php
 include('Pessoa.php');
-class FuncionarioDTO extends Pessoa{
+class FuncionariosDTO extends Pessoa{
 // atributos do objeto
 
 
@@ -14,4 +14,3 @@ public function __construct($dominio, $email, $senha){
 // funções do objeto
 
 }
-?>

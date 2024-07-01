@@ -1,5 +1,5 @@
 <?php
-require_once '../BLL/FuncionariosBLL.php';
+require_once '../Controller/FuncionariosBLL.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $dominio = $_POST['dominio'];

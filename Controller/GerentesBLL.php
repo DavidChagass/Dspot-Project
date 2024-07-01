@@ -1,6 +1,6 @@
 <?php
-require_once '../DAL/Conexao.php';
-require_once '../DTO/GerenteDTO.php';
+require_once 'Conexao.php';
+require_once '../Model/GerenteDTO.php';
 
 class GerentesBLL extends GerenteDTO
 {
