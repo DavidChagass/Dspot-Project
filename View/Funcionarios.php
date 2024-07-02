@@ -1,11 +1,11 @@
 <?php
-require_once '../Controller/FuncionariosBLL.php';
+require_once '../Controller/DaoFuncionarios.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $dominio = $_POST['dominio'];
     $email = $_POST['email'];
     $senha = $_POST['senha'];
-    $resultados = DaoGerentes::Login($dominio, $email, $senha);
+    $resultados = DaoFuncionarios::Login($dominio, $email, $senha);
 }
 ?>
 

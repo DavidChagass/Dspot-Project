@@ -27,7 +27,7 @@ class DaoGerentes extends Gerente
 
     //Login De Gerentes
     
-     function Login($dominio, $email, $senha)
+    public static function Login($dominio, $email, $senha)
     {
         $connObj = new Conexao();
         $conn = $connObj->retornaConexao();

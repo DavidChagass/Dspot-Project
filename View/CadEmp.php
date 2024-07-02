@@ -16,7 +16,7 @@
     <!--[if lt IE 9]>
 	    <script src="bower_components/html5shiv/dist/html5shiv.js"></script>
     <![endif]-->
-    <form action="Empresa.php" method="post">
+    <form action="Empresas.php" method="post">
         <h1>Cadastro de Empresa</h1>
         <div class="account">
             <input type="text" required="required" name="razao" class="razao" placeholder="Nome empresarial (razão social)">

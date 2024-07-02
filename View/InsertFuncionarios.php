@@ -1,12 +1,12 @@
 <?php
-require_once '../Controller/GerentesBLL.php';
+require_once '../Controller/DaoGerentes.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $idempresa = $_POST['idEmpresa'];
     $nomeFuncionario = $_POST['nome'];
     $email = $_POST['email'];
     $senha = $_POST['senha'];
-    $message = GerentesBLL::cadfuncionario($idempresa, $nomeFuncionario, $email, $senha);
+    $message = DaoGerentes::cadfuncionario($idempresa, $nomeFuncionario, $email, $senha);
     echo $message;
 }
 ?>
