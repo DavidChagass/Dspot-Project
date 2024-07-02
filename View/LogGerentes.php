@@ -17,7 +17,7 @@
     <!--[if lt IE 9]>
 	    <script src="bower_components/html5shiv/dist/html5shiv.js"></script>
     <![endif]-->
-    <form action="../View/Gerentes.php" method="post">
+    <form action="Gerentes.php" method="post">
         <div class="conteiner">
             <input type="text" required="required" onchange="domn()" name="dominio" class="dominio" maxlength="8" placeholder="Domínio">
         </div>

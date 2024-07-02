@@ -1,8 +1,8 @@
 <?php
 require_once 'Conexao.php';
-require_once '../Model/GerenteDTO.php';
+require_once '../Model/Gerente.php';
 
-class GerentesBLL extends GerenteDTO
+class DaoGerentes extends Gerente
 {
 
     //Cadastrar Funcionarios
@@ -27,7 +27,7 @@ class GerentesBLL extends GerenteDTO
 
     //Login De Gerentes
     
-    public static function LogGerentes($dominio, $email, $senha)
+     function Login($dominio, $email, $senha)
     {
         $connObj = new Conexao();
         $conn = $connObj->retornaConexao();

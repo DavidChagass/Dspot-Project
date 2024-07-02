@@ -1,7 +1,7 @@
 <?php
 include ('Pessoa.php');
 
-class GerenteDTO extends Pessoa{
+abstract class Gerente extends Pessoa{
  // atributos do objeto
 private $nomeFuncionario;
 private $idempresa;
@@ -24,9 +24,6 @@ private $idempresa;
         public function getIdEmpresa(){
           return $this->idempresa;
         }
-
-
-
 
 
 
