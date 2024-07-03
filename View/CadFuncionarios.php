@@ -15,7 +15,7 @@
     <!--[if lt IE 9]>
 	    <script src="bower_components/html5shiv/dist/html5shiv.js"></script>
     <![endif]-->
-    <form action="../UI/InsertFuncionarios.php" method="post">
+    <form action="../View/InsertFuncionarios.php" method="post">
 
         <div class="account">
             <input type="text" required="required" name="idEmpresa" class="email" placeholder="id Empresa">

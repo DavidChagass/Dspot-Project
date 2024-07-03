@@ -1,5 +1,5 @@
 <?php
-require_once '../BLL/GerentesBLL.php';
+require_once '../Controller/GerentesBLL.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $idempresa = $_POST['idEmpresa'];
@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-
+<a href="../index.html">VOLTAR</a>
 </body>
 
 </html>

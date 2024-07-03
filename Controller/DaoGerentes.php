@@ -1,15 +1,17 @@
 <?php
-require_once '../DAL/Conexao.php';
-require_once '../DTO/GerenteDTO.php';
+require_once 'Conexao.php';
+require_once '../Model/Gerente.php';
 
-class GerentesBLL extends GerenteDTO
+class DaoGerentes extends Gerente
 {
+
+    //Cadastrar Funcionarios
+
     public static function cadfuncionario($idempresa, $nomeFuncionario, $email, $senha)
     {
         $connObj = new Conexao();
         $conn = $connObj->retornaConexao();
-        $sql_code = "INSERT INTO Funcionario (nomeFuncionario, emailFuncionario, senhaFuncionario, fk_idEmpresa) 
-                       VALUES (:nomeFuncionario, :email, :senha, :idEmpresa)";
+        $sql_code = "call CadFuncionario(:idEmpresa, :nomeFuncionario, :email, :senha)";
 
         $stmt = $conn->prepare($sql_code);
         $stmt->bindParam(':idEmpresa', $idempresa);
@@ -23,12 +25,14 @@ class GerentesBLL extends GerenteDTO
         }
     }
 
-    public static function LogGerentes($dominio, $email, $senha)
+    //Login De Gerentes
+    
+     function Login($dominio, $email, $senha)
     {
         $connObj = new Conexao();
         $conn = $connObj->retornaConexao();
 
-        $sql_code = "call logGerentes(:dominio, :email, :senha)";
+        $sql_code = "call logGerente(:dominio, :email, :senha)";
 
         $stmt = $conn->prepare($sql_code);
         $stmt->bindParam(':dominio', $dominio);
@@ -36,10 +40,10 @@ class GerentesBLL extends GerenteDTO
         $stmt->bindParam(':senha', $senha);
         $stmt->execute();
         $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
-
+        
         return $resultado;
     }
-
+    // Contar A Quantidade De Funcionarios
 
     public static function ContFuncionario($dominio)
     {

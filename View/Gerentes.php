@@ -1,17 +1,18 @@
 <?php
-require_once '../BLL/GerentesBLL.php';
+require_once '../Controller/GerentesBLL.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $dominio = $_POST['dominio'];
     $email = $_POST['email'];
     $senha = $_POST['senha'];
-    $resultados = GerentesBLL::LogGerentes($dominio, $email, $senha);
+    $resultados = DaoGerentes::Login($dominio, $email, $senha);
 }
-
+/* 
 if(!empty($dominio)) {
     $totalFuncionarios = GerentesBLL::ContFuncionario($dominio);
     echo "<h3>TOTAL FUNCIONARIOS: " . $totalFuncionarios . "</h3>";
 }
+*/
 ?>
 
 <!DOCTYPE html>
@@ -56,15 +57,18 @@ if(!empty($dominio)) {
             </tr>
         </table>
     <?php
+
+        if(!empty($dominio)) {
+        $totalFuncionarios = DaoGerentes::ContFuncionario($dominio);
+        echo "<h3>TOTAL FUNCIONARIOS: " . $totalFuncionarios . "</h3>";
+        echo "<a class=\"button-3 \" href=\"CadFuncionarios.php\">Cadastre seus funcionarios</a>";
+        }
+
     } else {
         echo "Login inválido";
     }
+
     ?>
-
-<a href="CadastrarFuncionarios.php">Cadastre seus funcionarios</a>
-
-
-
 </body>
 
 </html>

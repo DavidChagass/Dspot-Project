@@ -1,12 +1,12 @@
 <?php
-require_once '../DAL/Conexao.php';
-require_once '../DTO/FuncionariosDTO.php';
+require_once 'Conexao.php';
+require_once '../Model/Funcionario.php';
 
 
-class FuncionariosBLL extends FuncionarioDTO
+class DaoFuncionarios extends Funcionario
 {
 
-    public static function LoginFuncionario($dominio, $email, $senha)
+    public static function Login($dominio, $email, $senha)
     {
         $connObj = new Conexao();
         $conn = $connObj->retornaConexao();
@@ -19,8 +19,7 @@ class FuncionariosBLL extends FuncionarioDTO
         $stmt->bindParam(':senha', $senha);
         $stmt->execute();
         $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
-    
-            return $resultado;
-        }
-    }
 
+        return $resultado;
+    }
+}
