@@ -15,6 +15,15 @@ if ($resultados) {
 } else {
     echo "Login inválido";
 }
+$descricao = null;
+$marca = null;
+$quantatual = null;
+$quanttotal = null;
+$ultimasaida = null;
+$nomeproduto = null;
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -76,13 +85,14 @@ if ($resultados) {
             <div class="card" style="width: 18rem;">
                 <img src="..." class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Nome Produto</h5>
-                    <p class="card-text">Descrição breve sobre o produto</p>
+                    <h5 class="card-title"><?= $nomeproduto ?></h5>
+                    <p class="card-text"><?= $descricao ?></p>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Marca - ....</li>
-                    <li class="list-group-item">Quantidade Atual - .......</li>
-                    <li class="list-group-item">Ultima saída - ......</li>
+                    <li class="list-group-item">Marca - <?= $marca ?></li>
+                    <li class="list-group-item">Quantidade Atual - <?= $quantatual ?></li>
+                    <li class="list-group-item">Quantidade Total - <?= $quanttotal ?>  </li>
+                    <li class="list-group-item">Ultima saída - <?= $ultimasaida ?></li>
                 </ul>
                 <form class="control d-flex">
                     <button type="button" class="btn btn-info">Adicionar</button>
