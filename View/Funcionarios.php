@@ -74,7 +74,7 @@ if ($resultados) {
         </nav>
         <div class="container-fluid produtos">
             <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
+                <a href="#"><img src="..." class="card-img-top" alt="..."></a>
                 <div class="card-body">
                     <h5 class="card-title">Nome Produto</h5>
                     <p class="card-text">Descrição breve sobre o produto</p>
