@@ -20,13 +20,6 @@ if ($resultados) {
 $quantlinhas = DaoEstoque::contProdutos($dominio);
 $dadosprodutos = DaoEstoque::dadosProdutos($dominio);
 
-$descricao = null;
-$marca = null;
-$quantatual = 2;
-$quanttotal = 10;
-$ultimasaida = null;
-$nomeproduto = null;
-$idestoque = 1;
 
 /* 
 $addProduto = DaoEstoque::addProdutos($quantatual, $idestoque);
@@ -102,7 +95,7 @@ $addProduto = DaoEstoque::addProdutos($quantatual, $idestoque);
                 foreach ($dadosprodutos as $p) :
             ?>
                     <div class="card" style="width: 18rem;">
-                        <a href="#"><img src="..." class="card-img-top" alt="..."></a>
+                        <a href="#"><img src="<?= $p['imagem'] ?>" class="card-img-top" alt="..."></a>
                         <div class="card-body">
                             <h5 class="card-title"><?= $p['nomeProduto'] ?></h5>
                             <p class="card-text"><?= $p['detalhes'] ?></p>
