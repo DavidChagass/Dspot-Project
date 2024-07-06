@@ -1,5 +1,6 @@
 <?php
 require_once '../Controller/DaoFuncionarios.php';
+require_once '../Controller/DaoEstoque.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $dominio = $_POST['dominio'];
@@ -15,13 +16,21 @@ if ($resultados) {
 } else {
     echo "Login inválido";
 }
+
+$quantlinhas = DaoEstoque::contProdutos($dominio);
+$dadosprodutos = DaoEstoque::dadosProdutos($dominio);
+
 $descricao = null;
 $marca = null;
-$quantatual = null;
-$quanttotal = null;
+$quantatual = 2;
+$quanttotal = 10;
 $ultimasaida = null;
 $nomeproduto = null;
+$idestoque = 1;
 
+/* 
+$addProduto = DaoEstoque::addProdutos($quantatual, $idestoque);
+ */
 
 
 ?>
@@ -35,6 +44,12 @@ $nomeproduto = null;
     <title><?= $nome ?> - Dspot</title>
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="../css/funcionario.plataform.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </head>
@@ -82,26 +97,75 @@ $nomeproduto = null;
             </div>
         </nav>
         <div class="container-fluid produtos">
-            <div class="card" style="width: 18rem;">
-                <a href="#"><img src="..." class="card-img-top" alt="..."></a>
-                <div class="card-body">
-                    <h5 class="card-title"><?= $nomeproduto ?></h5>
-                    <p class="card-text"><?= $descricao ?></p>
+
+            <?php if ($quantlinhas && is_array($dadosprodutos)) :
+                foreach ($dadosprodutos as $p) :
+            ?>
+                    <div class="card" style="width: 18rem;">
+                        <a href="#"><img src="..." class="card-img-top" alt="..."></a>
+                        <div class="card-body">
+                            <h5 class="card-title"><?= $p['nomeProduto'] ?></h5>
+                            <p class="card-text"><?= $p['detalhes'] ?></p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Fornecedor - <?= $p['fornecedor'] ?></li>
+                            <li class="list-group-item">Quantidade Atual - <?= $p['quantidadeAtual'] ?></li>
+                            <li class="list-group-item">Quantidade Total - <?= $p['quantidadeTotal'] ?> </li>
+                            <li class="list-group-item">Ultima saída - <?= $p['dataUltimaModificacao'] ?></li>
+                        </ul>
+                        <form class="control d-flex">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                             adicionar
+                            </button>
+
+                            <input type="number" class="form-control productNumber" placeholder="0" aria-describedby="addon-wrapping">
+                            <button type="button" class="btn btn-info">Retirar</button>
+                        </form>
+                    </div>
+            <?php endforeach;
+            endif; ?>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Marca - <?= $marca ?></li>
-                    <li class="list-group-item">Quantidade Atual - <?= $quantatual ?></li>
-                    <li class="list-group-item">Quantidade Total - <?= $quanttotal ?>  </li>
-                    <li class="list-group-item">Ultima saída - <?= $ultimasaida ?></li>
-                </ul>
-                <form class="control d-flex">
-                    <button type="button" class="btn btn-info">Adicionar</button>
-                    <input type="number" class="form-control productNumber" placeholder="0" aria-describedby="addon-wrapping">
-                    <button type="button" class="btn btn-info">Retirar</button>
-                </form>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
             </div>
         </div>
     </div>
+
+
+
+
 </body>
 
 </html>
