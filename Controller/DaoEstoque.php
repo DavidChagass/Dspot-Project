@@ -8,7 +8,7 @@ class DaoEstoque extends Estoque{
 //modificar a quantidade de produtos
 
 
-public static function addProdutos($quantatual, $idestoque, $dominio){
+public static function alterarProdutos($quantatual, $idestoque, $dominio){
 
     $connObj = new Conexao();
     $conn = $connObj->retornaConexao();

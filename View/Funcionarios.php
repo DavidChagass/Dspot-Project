@@ -21,9 +21,6 @@ $quantlinhas = DaoEstoque::contProdutos($dominio);
 $dadosprodutos = DaoEstoque::dadosProdutos($dominio);
 
 
-/* 
-$addProduto = DaoEstoque::addProdutos($quantatual, $idestoque);
- */
 
 
 ?>
@@ -95,7 +92,7 @@ $addProduto = DaoEstoque::addProdutos($quantatual, $idestoque);
                 foreach ($dadosprodutos as $p) :
             ?>
                     <div class="card" style="width: 18rem;">
-                        <a href="#"><img src="<?= $p['imagem'] ?>" class="card-img-top" alt="..."></a>
+                        <a href="#"><img src="<?= $p['imagem'] ?>" class="card-img-top" alt=""></a>
                         <div class="card-body">
                             <h5 class="card-title"><?= $p['nomeProduto'] ?></h5>
                             <p class="card-text"><?= $p['detalhes'] ?></p>
@@ -107,8 +104,8 @@ $addProduto = DaoEstoque::addProdutos($quantatual, $idestoque);
                             <li class="list-group-item">Ultima saída - <?= $p['dataUltimaModificacao'] ?></li>
                         </ul>
                         <form class="control d-flex">
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                             adicionar
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">          
+                                adicionar
                             </button>
 
                             <input type="number" class="form-control productNumber" placeholder="0" aria-describedby="addon-wrapping">
@@ -121,20 +118,6 @@ $addProduto = DaoEstoque::addProdutos($quantatual, $idestoque);
         </div>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -146,11 +129,11 @@ $addProduto = DaoEstoque::addProdutos($quantatual, $idestoque);
                     </button>
                 </div>
                 <div class="modal-body">
-                    ...
+                    Dados Atualizados
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary">Recarregar pagina</button>
                 </div>
             </div>
         </div>
