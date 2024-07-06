@@ -19,7 +19,7 @@ public static function alterarProdutos($quantatual, $idestoque, $dominio){
     $stmt->bindParam(":idEstoque", $idestoque);
     $stmt->bindParam(":dominio", $dominio);
     if ($stmt->execute()){
-        return     header('Location ../Funcionarios.php');
+        return ;
     } else{
         return "erro ao atualizar";
     }
