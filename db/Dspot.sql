@@ -41,10 +41,11 @@ dataValidade date not null,
 precoCompra float(5,2) not null,
 fornecedor varchar(255) not null,
 quantidadeTotal int(255) not null,
+imagem varchar(255),
 foreign key(fk_idEmpresa) references empresa(idEmpresa) on delete restrict on update restrict
 )engine=InnoDB;
 
--- drop table estoque;
+drop table estoque;
 -- drop table Funcionario;
 
 -- colunas: id, nomeProduto, detalhes, quantidadeAtual, dataEntrada, dataUltimaModificacao, perecivel = bool, dataValidade, precoCompra
@@ -68,6 +69,61 @@ insert into Gerente(fk_idEmpresa, nomeGerente, senhaGerente, emailGerente)
 
 insert into Funcionario(fk_idEmpresa ,nomeFuncionario, senhaFuncionario, emailFuncionario)
 values(3, "mariana", "mariana123", "mariana@gmail.com");
+
+INSERT INTO estoque (
+    fk_idEmpresa, 
+    nomeProduto, 
+    detalhes, 
+    quantidadeAtual, 
+    dataEntrada, 
+    dataUltimaModificacao, 
+    perecivel, 
+    dataValidade, 
+    precoCompra, 
+    fornecedor, 
+    quantidadeTotal,
+    imagem
+) VALUES (
+    1, 
+    'Produto Exemplo', 
+    'Detalhes do produto', 
+    100, 
+    '2024-07-06 10:00:00',
+    '2024-07-06 10:00:00', 
+    TRUE, 
+    '2024-12-31',
+    19.99, 
+    'Fornecedor Exemplo', 
+    150,
+    'https://cdn.motor1.com/images/mgl/lEmjGg/s3/chevrolet-tracker-rs-2024.jpg'
+);
+
+
+INSERT INTO estoque (
+    fk_idEmpresa, 
+    nomeProduto, 
+    detalhes, 
+    quantidadeAtual, 
+    dataEntrada, 
+    dataUltimaModificacao, 
+    perecivel, 
+    dataValidade, 
+    precoCompra, 
+    fornecedor, 
+    quantidadeTotal
+) VALUES (
+    1, 
+    'Segundo Produto Exemplo', 
+    'Detalhes do produto exemplo', 
+    100, 
+    '2024-07-06 12:00:00', 
+    '2024-07-06 12:00:00', 
+    true, 
+    '2025-07-06', 
+    50.75, 
+    'Fornecedor Exemplo', 
+    200
+);
 
 
 delimiter $
@@ -153,3 +209,5 @@ delimiter ;
 -- call CadFuncionario(1,'rosangela', 'rosangela@gmail.com', 'rosa12345');
 -- call logFuncionario('12345-1*23', "sanduicheiche@gmail.com", "samuelsilva");
 -- select * from funcionario;
+
+-- SELECT  * FROM Estoque INNER JOIN Empresa ON Estoque.fk_idEmpresa = Empresa.idEmpresa  WHERE dominio = '12345-1*23';
