@@ -45,7 +45,7 @@ imagem varchar(255),
 foreign key(fk_idEmpresa) references empresa(idEmpresa) on delete restrict on update restrict
 )engine=InnoDB;
 
-drop table estoque;
+
 -- drop table Funcionario;
 
 -- colunas: id, nomeProduto, detalhes, quantidadeAtual, dataEntrada, dataUltimaModificacao, perecivel = bool, dataValidade, precoCompra
@@ -211,3 +211,4 @@ delimiter ;
 -- select * from funcionario;
 
 -- SELECT  * FROM Estoque INNER JOIN Empresa ON Estoque.fk_idEmpresa = Empresa.idEmpresa  WHERE dominio = '12345-1*23';
+

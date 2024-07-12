@@ -18,8 +18,9 @@ public static function alterarProdutos($quantatual, $idestoque, $dominio){
     $stmt->bindParam(":quantatual", $quantatual);
     $stmt->bindParam(":idEstoque", $idestoque);
     $stmt->bindParam(":dominio", $dominio);
+    $funcionarios=$stmt->fetchAll(PDO::FETCH_ASSOC);
     if ($stmt->execute()){
-        return ;
+        return $funcionarios;
     } else{
         return "erro ao atualizar";
     }
@@ -51,6 +52,7 @@ public static function dadosProdutos($dominio){
     $dados = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
     return $dados;
+
 }
 
 

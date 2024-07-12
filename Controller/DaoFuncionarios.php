@@ -21,5 +21,6 @@ class DaoFuncionarios extends Funcionario
         $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
 
         return $resultado;
+     
     }
 }

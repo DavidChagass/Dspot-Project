@@ -105,15 +105,18 @@ $dadosprodutos = DaoEstoque::dadosProdutos($dominio);
                                 <li class="list-group-item">Quantidade Total - <?= $p['quantidadeTotal'] ?> </li>
                                 <li class="list-group-item">Ultima saída - <?= $p['dataUltimaModificacao'] ?></li>
                             </ul>
-                            <form class="control d-flex">
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                                    adicionar
-                                </button>
-
+                            <form action="control d-flex" method="post" >
+                                                  <input type="button" onClick="recarregarAPagina()" class="btn btn-primary"  data-toggle="modal" data-target="#exampleModal" value="adicionar">
                                 <input type="number" class="form-control productNumber" placeholder="0" aria-describedby="addon-wrapping">
-                                <button type="button" class="btn btn-info">Retirar</button>
+                                <input type="button" class="btn btn-info" value="Retirar" data-toggle="modal" data-target="#exampleModal" >
+                                <script>
+    function recarregarAPagina(){
+    window.location.reload();
+} 
+</script>
                             </form>
                         </div>
+                        
                 <?php endforeach;
                 endif; ?>
 
@@ -135,7 +138,8 @@ $dadosprodutos = DaoEstoque::dadosProdutos($dominio);
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Recarregar pagina</button>
+                        <button type="submit" class="btn btn-primary" href="#">Recarregar pagina </button>
+          
                     </div>
                 </div>
             </div>
