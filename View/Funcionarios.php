@@ -46,6 +46,7 @@ $dadosprodutos = DaoEstoque::dadosProdutos($dominio);
         $nome = htmlspecialchars($resultados['nomeFuncionario']);
         $email = htmlspecialchars($resultados['emailFuncionario']);
         $senha = htmlspecialchars($resultados['senhaFuncionario']);
+    
     ?>
         <!--[if lt IE 9]>
 	    <script src="bower_components/html5shiv/dist/html5shiv.js"></script>
@@ -108,12 +109,20 @@ $dadosprodutos = DaoEstoque::dadosProdutos($dominio);
                             <form action="control d-flex" method="post" >
                                                   <input type="button" onClick="recarregarAPagina()" class="btn btn-primary"  data-toggle="modal" data-target="#exampleModal" value="adicionar">
                                 <input type="number" class="form-control productNumber" placeholder="0" aria-describedby="addon-wrapping">
-                                <input type="button" class="btn btn-info" value="Retirar" data-toggle="modal" data-target="#exampleModal" >
-                                <script>
+                                <input type="button" onClick="recarregarAPagina()" class="btn btn-info" value="Retirar" data-toggle="modal" data-target="#exampleModal" >
+                                  
+                                
+                               <script>
+                                    
+     
     function recarregarAPagina(){
     window.location.reload();
+              
 } 
 </script>
+
+
+
                             </form>
                         </div>
                         
