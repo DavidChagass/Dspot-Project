@@ -8,21 +8,21 @@ class DaoEstoque extends Estoque{
 //modificar a quantidade de produtos
 
 
-public static function alterarProdutos($quantatual, $idestoque, $dominio){
-
+public static function alterarProdutos($quantatual, $idestoque, $dominio)
+{
     $connObj = new Conexao();
     $conn = $connObj->retornaConexao();
 
-    $sql = "UPDATE Estoque INNER JOIN Empresa  ON Estoque.fk_idEmpresa = Empresa.idEmpresa SET quantidadeAtual = :quantatual WHERE idEstoque = :idestoque AND dominio = :dominio";
+    $sql = "UPDATE Estoque INNER JOIN Empresa ON Estoque.fk_idEmpresa = Empresa.idEmpresa SET quantidadeAtual = :quantatual WHERE idEstoque = :idestoque AND dominio = :dominio";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(":quantatual", $quantatual);
     $stmt->bindParam(":idEstoque", $idestoque);
     $stmt->bindParam(":dominio", $dominio);
-    $funcionarios=$stmt->fetchAll(PDO::FETCH_ASSOC);
-    if ($stmt->execute()){
-        return $funcionarios;
-    } else{
-        return "erro ao atualizar";
+
+    if ($stmt->execute()) {
+        return header("location: ../View/Funcionarios.php");
+    } else {
+        return "Erro ao atualizar produto";
     }
 }
 

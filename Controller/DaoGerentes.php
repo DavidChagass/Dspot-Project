@@ -19,9 +19,9 @@ class DaoGerentes extends Gerente
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':senha', $senha);
         if ($stmt->execute()) {
-            return "funcionario inserido";
-        } else {
-            echo "erro ao inserir";
+            $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $resultado;
+         
         }
     }
 

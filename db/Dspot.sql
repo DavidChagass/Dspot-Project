@@ -6,7 +6,8 @@ create table Empresa(
 idEmpresa int primary key auto_increment,
 dominio char(10) not null,
 nomeEmpresa varchar(80) not null,
-cnpjEmpresa char(18) not null
+emailEmpresa varchar(200) not null,
+telefoneEmpresa varchar(14)
 )engine=InnoDB;
 
 create table Funcionario(
@@ -51,24 +52,31 @@ foreign key(fk_idEmpresa) references empresa(idEmpresa) on delete restrict on up
 -- colunas: id, nomeProduto, detalhes, quantidadeAtual, dataEntrada, dataUltimaModificacao, perecivel = bool, dataValidade, precoCompra
 -- precoVenda, fornecedor, quantidadeTotal, idEmpresa=fk
 
-insert into Empresa(dominio, nomeEmpresa, cnpjEmpresa)
-values('12345-1*23', 'empresa', "123456789123456789");
+insert into Empresa(dominio, nomeEmpresa, emailEmpresa, telefoneEmpresa)
+values('12345-1*23', 'empresa',"empresa1@gmail.com",  "(81) 3897-8248");
 
-insert into Empresa(dominio, nomeEmpresa, cnpjEmpresa)
-values('23456-1*23', 'segunda-empresa', "07112610000126");
+insert into Empresa(dominio, nomeEmpresa, emailEmpresa, telefoneEmpresa)
+values('23456-1*23', 'segunda-empresa', "empresa2@gmail.com", "(79) 3862-5632");
 
 insert into Gerente(fk_idEmpresa, nomeGerente, senhaGerente, emailGerente) 
-	values(1, "Ronaldo", "ronaldo123","ronaldo@gmail.com");
+values(1, "Ronaldo", "ronaldo123","ronaldo@gmail.com");
 
 insert into Funcionario(fk_idEmpresa ,nomeFuncionario, senhaFuncionario, emailFuncionario)
 values(1, "samuel silva", "samuelsilva", "sanduicheiche@gmail.com");
 
 
 insert into Gerente(fk_idEmpresa, nomeGerente, senhaGerente, emailGerente) 
-	values(3, "santana", "santana123","santana@gmail.com");
+values(2, "santana", "santana123","santana@gmail.com");
 
 insert into Funcionario(fk_idEmpresa ,nomeFuncionario, senhaFuncionario, emailFuncionario)
-values(3, "mariana", "mariana123", "mariana@gmail.com");
+values(2, "mariana", "mariana123", "mariana@gmail.com");
+
+
+
+
+
+
+
 
 INSERT INTO estoque (
     fk_idEmpresa, 
@@ -186,21 +194,25 @@ create procedure contFuncionarios(
   out quantidadeTotal int
 )
 BEGIN
-  select count(idFuncionario) INTO quantidadeTotal, nomeFuncionario 
+  select count(idFuncionario) INTO quantidadeTotal
     from funcionario 
     inner join empresa on funcionario.fk_idEmpresa = empresa.idempresa
-    WHERE dominio = dominioEmpresa;
+    WHERE empresa.dominio = dominioEmpresa;
 END$
 delimiter ;
 
+
+
 -- drop procedure contFuncionarios;
--- call contFuncionarios('12345-1*23');
+-- call contFuncionarios('12345-1*23', @quantidadeTotal);
+-- select @quantidadeTotal;
 -- select * from gerente;
 -- select * from empresa;
 -- select * from funcionario;
--- delete from empresa where idempresa = 2;
--- delete from funcionario where fk_idempresa = 2;
--- delete from gerente where fk_idempresa = 2;
+-- delete from empresa where idempresa = 3;
+-- delete from funcionario where fk_idempresa = 3;
+-- delete from estoque where fk_idempresa = 3;
+-- delete from gerente where fk_idempresa = 3;
 -- drop procedure logFuncionario;
 -- drop procedure logGerente;
 -- drop table funcionario;
@@ -208,7 +220,6 @@ delimiter ;
 -- drop procedure cadfuncionario;
 -- call CadFuncionario(1,'rosangela', 'rosangela@gmail.com', 'rosa12345');
 -- call logFuncionario('12345-1*23', "sanduicheiche@gmail.com", "samuelsilva");
--- select * from funcionario;
 
 -- SELECT  * FROM Estoque INNER JOIN Empresa ON Estoque.fk_idEmpresa = Empresa.idEmpresa  WHERE dominio = '12345-1*23';
 

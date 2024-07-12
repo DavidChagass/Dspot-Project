@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/cadEmp.css">
     <link rel="stylesheet" href="../css/main.css">
     <script defer src="../js/main.js"></script>
+    <script defer src="../js/dom.validate.js"></script>
     <link href="https://fonts.cdnfonts.com/css/berlin-sans-fb" rel="stylesheet">
 
     <title>Dspot - Gerentes</title>
@@ -19,7 +20,7 @@
     <![endif]-->
     <form action="Gerentes.php" method="post">
         <div class="conteiner">
-            <input type="text" required="required" onchange="domn()" name="dominio" class="dominio" maxlength="8" placeholder="Domínio">
+            <input type="text" required="required" onchange="domn()" name="dominio" class="dominio" id="dominio"  placeholder="Domínio">
         </div>
         <div class="account">
             <input type="email" required="required" name="email" class="email" placeholder="E-mail">
