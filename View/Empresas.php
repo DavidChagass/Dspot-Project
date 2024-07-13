@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </tr>
             <tr>
                 <td>
-                    <h3>Nome Gerente: <?= $nomeEmpresa ?> </h3>
+                    <h3>Nome da Empresa: <?= $nomeEmpresa ?> </h3>
                 </td>
             </tr>
             <tr>
