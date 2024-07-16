@@ -60,7 +60,7 @@ $dadosprodutos = DaoEstoque::dadosProdutos($dominio);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina dos funcionarios - Dspot</title>
+    <title><?php echo $_SESSION['nome'];  ?> - Dspot</title>
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="../css/funcionario.plataform.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -108,7 +108,7 @@ $dadosprodutos = DaoEstoque::dadosProdutos($dominio);
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="#">Funcionário</a></li>
-                                    <li><a class="dropdown-item" href="#">Gerente</a></li>
+                                    <li><a class="dropdown-item" href="LogGerentes.php">Gerente</a></li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>

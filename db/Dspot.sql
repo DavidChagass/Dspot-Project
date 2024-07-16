@@ -80,17 +80,17 @@ values(2, "mariana", "mariana123", "mariana@gmail.com");
 
 INSERT INTO estoque (
     fk_idEmpresa, 
-    nomeProduto, 
-    detalhes, 
-    quantidadeAtual, 
-    dataEntrada, 
-    dataUltimaModificacao, 
-    perecivel, 
-    dataValidade, 
-    precoCompra, 
-    fornecedor, 
-    quantidadeTotal,
-    imagem
+      nomeProduto, 
+      detalhes, 
+      quantidadeAtual, 
+      dataEntrada, 
+      dataUltimaModificacao, 
+      perecivel, 
+      dataValidade, 
+      precoCompra, 
+      fornecedor, 
+      quantidadeTotal,
+      imagem
 ) VALUES (
     1, 
     'Produto Exemplo', 
@@ -134,6 +134,9 @@ INSERT INTO estoque (
 );
 
 
+
+
+
 delimiter $
 create procedure logFuncionario(
   in Login_dominio_funcionario char(10),
@@ -152,7 +155,6 @@ create procedure logFuncionario(
   
 
 delimiter ;
-
 
 
 delimiter $
@@ -188,6 +190,7 @@ create procedure CadFuncionario(
 
 delimiter ;
 
+
 delimiter $ 
 create procedure contFuncionarios(
   in dominioEmpresa char(10),
@@ -200,6 +203,57 @@ BEGIN
     WHERE empresa.dominio = dominioEmpresa;
 END$
 delimiter ;
+
+
+delimiter $ 
+
+ create procedure addProduto(
+  in Produto varchar(255),  
+  in detalheProduto varchar(255), 
+  in quantAtual int(255), 
+  in dtEntrada date, 
+  in dtModificacao date, 
+  in pereciveis boolean, 
+  in dtVal date, 
+  in preco float(5,2) , 
+  in fornecedores varchar(255), 
+  in quantTotal int(255),
+  in img varchar(255)
+)
+
+BEGIN
+insert into estoque
+(
+  nomeProduto,
+  detalhes,
+  quantidadeAtual,
+  dataEntrada,
+  dataUltimaModificacao,
+  perecivel,
+  dataValidade,
+  precoCompra,
+  fornecedor,
+  quantidadeTotal,
+  imagem
+)
+values
+(
+  Produto,
+  detalheProduto,
+  quantAtual,
+  dtEntrada,
+  dtModificacao,
+  pereciveis,
+  dtVal,
+  preco,
+  fornecedores,
+  quantTotal,
+  img
+);
+END$
+
+delimiter ;
+
 
 
 
@@ -220,6 +274,4 @@ delimiter ;
 -- drop procedure cadfuncionario;
 -- call CadFuncionario(1,'rosangela', 'rosangela@gmail.com', 'rosa12345');
 -- call logFuncionario('12345-1*23', "sanduicheiche@gmail.com", "samuelsilva");
-
 -- SELECT  * FROM Estoque INNER JOIN Empresa ON Estoque.fk_idEmpresa = Empresa.idEmpresa  WHERE dominio = '12345-1*23';
-
