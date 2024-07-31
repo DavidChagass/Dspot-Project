@@ -7,6 +7,7 @@ class Estoque
     private $quantatual;
     private $marca;
     private $ultimasaida;
+    
     // metodo contrutor 
     public function __construct($nomeproduto, $quanttotal, $quantatual, $marca, $ultimasaida)
     {
